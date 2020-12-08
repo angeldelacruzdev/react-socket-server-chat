@@ -14,24 +14,7 @@
   </head>
   <body>
     <div class="container">
-      <h1 class="mt-5">Mini Chat</h1>
-      <hr />
-
-      <form id="myForm">
-        <div class="row">
-          <div class="col-8">
-            <input type="text" id="TxtMensaje" name="TxtMensaje" class="form-control" />
-          </div>
-          <div class="col-4">
-            <button type="submit" class="btn btn-primary">Enviar</button>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <ul id="misMensajes" class="mt-2"></ul>
-          </div>
-        </div>
-      </form>
+      <h1 class="mt-5">Acceso denegado</h1>
     </div>
 
     <script
@@ -41,25 +24,11 @@
     ></script>
     <script>
       // Conexion socket
-    //   const socket = io("http://localhost:3001");
-      const socket = io("https://react-socket-server-chat.herokuapp.com");
+      const socket = io("http://localhost:3001");
+    //   const socket = io("https://react-socket-server-chat.herokuapp.com");
       // elementos del DOM
-      const form = document.querySelector("#myForm");
-      const mensaje = document.querySelector("#TxtMensaje");
-      const misMensajes = document.querySelector("#misMensajes");
-
-      form.addEventListener('submit', (event) => {
-            event.preventDefault();
-            const txtValue = mensaje.value;
-            socket.emit('client', {msg: txtValue, name: "Angel"});
-
-            mensaje.value = '';
-      })
-
-      socket.on("mensaje-from-server", (data) => {
-        console.log(data.msg);
-        misMensajes.innerHTML += `<li>${data.msg}</li>`
-      });
+       
+      
 
       //    setTimeout(() =>{
       //         socket.emit('client', {msg: "Cliente", name: "Angel"});
