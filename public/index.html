@@ -41,6 +41,7 @@
     ></script>
     <script>
       // Conexion socket
+    //   const socket = io("http://localhost:3001");
       const socket = io("https://react-socket-server-chat.herokuapp.com");
       // elementos del DOM
       const form = document.querySelector("#myForm");
@@ -51,6 +52,8 @@
             event.preventDefault();
             const txtValue = mensaje.value;
             socket.emit('client', {msg: txtValue, name: "Angel"});
+
+            mensaje.value = '';
       })
 
       socket.on("mensaje-from-server", (data) => {
